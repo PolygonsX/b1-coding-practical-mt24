@@ -4,8 +4,7 @@ class PDController:
 
         u[t] = Kp * e[t] + Kd * (e[t] - e[t-1]),   e[t] = r[t] - y[t],
 
-    with e[-1] = 0. The derivative term is a backward difference per time
-    step (the simulation uses dt = 1, so no division by dt is needed).
+    with e[-1] = 0.
 
     The controller is stateful: it stores the previous error. Call reset()
     at the start of every simulation run, and call compute_action() exactly
