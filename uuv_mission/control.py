@@ -8,8 +8,10 @@ class PDController:
     # of the UUV's depth control system.
    
     def __init__(self, Kp: float = 0.15, Kd: float = 0.6):
-        self.kp = Kp
-        self.kd = Kd
+        self.Kp = Kp
+        self.Kd = Kd
+        self.prev_error = 0.0  # Initialize previous error to zero for the first computation
+        
 
 # Code to reset the controller state for the start of each run, effectively setting e[-1] = 0.0
 # as required in the assignment instructions. 
@@ -21,6 +23,6 @@ class PDController:
         
     def compute_action(self, reference: float, output: float) -> float:
         error = reference - output
-        action = self.kp * error + self.kd * (error - self.prev_error)
+        action = self.Kp * error + self.Kd * (error - self.prev_error)
         self.prev_error = error
         return action
