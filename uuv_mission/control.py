@@ -4,7 +4,8 @@ class PDController:
 
         u[t] = Kp * e[t] + Kd * (e[t] - e[t-1]),   e[t] = r[t] - y[t],
 
-    with e[-1] = 0.
+    with e[-1] = 0. dt = 1 (defined in dynamic.py) so the derivative term is simply the
+    difference between the current and previous error.
 
     The controller is stateful: it stores the previous error. Call reset()
     at the start of every simulation run, and call compute_action() exactly
