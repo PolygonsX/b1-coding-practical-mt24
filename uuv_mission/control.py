@@ -17,6 +17,7 @@ class PDController:
         self.prev_error = 0.0 
 
 # Code to compute the control action based on the reference depth and the observed depth.
+# Need to make sure systems engineer uses same syntax and argument order.
         
     def compute_action(self, reference: float, output: float) -> float:
         error = reference - output
